@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+<!doctype html>
+<html lang="en">
+​
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+​
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li> <a href="">Me</a></li>
+        {{#if currentUser}}
+        <li>
+          <form action="/auth/logout" method="POST">
+          <button type="submit">Log out</button></form>
+        </li>
+        {{/if}}
+      </ul>
+    </nav>
+  </header>
+  {{{body}}}
+</body>
 </html>
+
+
+
+
