@@ -9,7 +9,7 @@ const Country = require('../models/Country.js');
 router.get('/', async (req, res, next) => {
   try {
     const countryList = await Country.find();
-    res.render('countryView/indexCountry', { countryList });
+    res.render('index', { countryList });
   } catch (error) {
     next(error);
   }
