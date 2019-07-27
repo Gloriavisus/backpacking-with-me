@@ -18,6 +18,15 @@ const countries = [
   } // end of countries list
 ];
 
-Country.create(countries)
-  .then((data) => console.log(data))
-  .catch((error) => console.log(error));
+
+const addCountries = async () => {
+  try {
+    await Country.create(countries);
+    mongoose.connection.close();
+  } catch (error) {
+    console.log(error);
+  }
+};
+addCountries();
+
+ 
