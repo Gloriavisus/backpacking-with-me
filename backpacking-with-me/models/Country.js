@@ -15,6 +15,9 @@ const countrySchema = new Schema({
   preferences: {
     type: ObjectId,
     ref: 'User'
+  },
+  image: {
+    type: String
   }
 }, {
   timestamps: true
