@@ -25,7 +25,7 @@ router.post('/signup', isLoggedIn, isFormFilled, async (req, res, next) => {
       username,
       password: hashedPassword,
       hobbies: [],
-      description: '',
+      description: ''
     });
     req.session.currentUser = newUser;
     return res.redirect('/countries');

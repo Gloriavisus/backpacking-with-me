@@ -3,9 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Country = require('../models/Country.js');
 
-
-
- /* GET users listing. */
+/* GET users listing. */
 router.get('/', async (req, res, next) => {
   try {
     const countryList = await Country.find();
@@ -15,31 +13,27 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-
-router.get('/:id', async (req, res, next) =>{
-  try{
+router.get('/:id', async (req, res, next) => {
+  try {
     const { id } = req.params;
-    console.log(id)
+    console.log(id);
     const countryDetail = await Country.findById(id);
     console.log(countryDetail);
-    res.render('countryView/countryDetail', {countryDetail});
-  }
-  catch(error){
+    res.render('countryView/countryDetail', { countryDetail });
+  } catch (error) {
     next(error);
   }
-})
+});
 
-
-router.post('/:id/favorite', async (req, res, next) =>{
+router.post('/:id/favorite', async (req, res, next) => {
   const userId = req.session.currentUser._id;
   const { id } = req.params;
-  try{ 
-    await Country.findByIdAndUpdate(id, {$push: {preferences: userId}})
-    res.redirect('/countries')
-  }
-  catch(error){
+  try {
+    await Country.findByIdAndUpdate(id, { $push: { preferences: userId } });
+    res.redirect('/countries');
+  } catch (error) {
     next(error);
   }
-})
+});
 
- module.exports = router;
+module.exports = router;

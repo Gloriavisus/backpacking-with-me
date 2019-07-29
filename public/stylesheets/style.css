@@ -1,8 +1,12 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ 
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+}
+.home-page{
+  background-image: url('../image/sky22.jpg');
+  opacity:0.5;
 }
