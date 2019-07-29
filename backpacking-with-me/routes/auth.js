@@ -23,7 +23,9 @@ router.post('/signup', isLoggedIn, isFormFilled, async (req, res, next) => {
     }
     const newUser = await User.create({
       username,
-      password: hashedPassword
+      password: hashedPassword,
+      hobbies: [],
+      description: '',
     });
     req.session.currentUser = newUser;
     return res.redirect('/countries');

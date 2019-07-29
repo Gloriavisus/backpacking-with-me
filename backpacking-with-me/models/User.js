@@ -13,10 +13,12 @@ const userSchema = new Schema({
     required: true
   },
   hobbies: {
-    type: String
+    type: Array,
+    default: [],
   },
   description: {
-    type: String
+    type: String,
+    default: "",
   }
 }, {
   timestamps: true
