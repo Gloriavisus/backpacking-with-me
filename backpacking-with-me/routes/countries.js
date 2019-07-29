@@ -24,8 +24,22 @@ router.get('/:id', async (req, res, next) =>{
     console.log(countryDetail);
     res.render('countryView/countryDetail', {countryDetail});
   }
-  catch(eror){
+  catch(error){
     next(error);
   }
 })
+
+
+router.post('/:id/favorite', async (req, res, next) =>{
+  const userId = req.session.currentUser._id;
+  const { id } = req.params;
+  try{ 
+    await Country.findByIdAndUpdate(id, {$push: {preferences: userId}})
+    res.redirect('/countries')
+  }
+  catch(error){
+    next(error);
+  }
+})
+
  module.exports = router;

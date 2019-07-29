@@ -12,10 +12,10 @@ const countrySchema = new Schema({
   description: {
     type: String
   },
-  preferences: {
+  preferences: [{
     type: ObjectId,
     ref: 'User'
-  },
+  }],
   image: {
     type: String
   }

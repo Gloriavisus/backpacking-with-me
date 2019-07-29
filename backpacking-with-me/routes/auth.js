@@ -26,7 +26,7 @@ router.post('/signup', isLoggedIn, isFormFilled, async (req, res, next) => {
       password: hashedPassword
     });
     req.session.currentUser = newUser;
-    return res.redirect('/');
+    return res.redirect('/countries');
   } catch (error) {
     next(error);
   }
@@ -44,7 +44,7 @@ router.post('/login', isLoggedIn, isFormFilled, async (req, res, next) => {
     }
     if (bcrypt.compareSync(password, user.password)) {
       req.session.currentUser = user;
-      res.redirect('/');
+      res.redirect('/countries');
     } else {
       res.redirect('/auth/login');
     }

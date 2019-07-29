@@ -1,8 +1,13 @@
 
 {{#each countryDetail}}
-<h2>{{name}}</h2>
-<p>{{city}}</p>
-<p>{{img}}</p>
-<p>{{description}}</p>
+  <h2>{{name}}</h2>
+  <p>{{city}}</p>
+  <img src={{image}}>
+  <p>{{description}}</p>
 {{/each}}
+
+<h3>Favorite</h3>
+<form action="/countries/{{countryDetail._id}}/favorite" method="POST">
+<button type="submit">Favorite</button>
+</form>
 
