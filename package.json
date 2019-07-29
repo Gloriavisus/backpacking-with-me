@@ -8,8 +8,8 @@
     "country-seed": "node ./bin/countries-seed"
   },
   "engines": {
-    "node": "x.x.x",
-    "npm": "x.x.x"
+    "node": "12.6.0",
+    "npm": "6.10.1"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
