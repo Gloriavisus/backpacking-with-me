@@ -7,18 +7,27 @@ const User = require('../models/User.js');
 router.get('/me', async (req, res, next) => {
   const userId = req.session.currentUser._id;
   const user = await User.findById(userId);
+
   res.render('me', user);
 });
+router.get('/me/edit', async (req, res, next) => {
 
-router.post('/me', async (req, res, next) => {
-  const { hobbies, description } = req.body;
-  const { id } = req.params;
+  const userId = req.session.currentUser._id;
+  const user = await User.findById(userId);
+  res.render('editme', user);
+});
+
+router.post('/me/edit', async (req, res, next) => {
+  const { username, hobbies, description } = req.body;
+  const id = req.session.currentUser._id;
   try{
+    console.log("here we are tias")
     await User.findByIdAndUpdate(id, {
+      username,
       hobbies, 
       description
     })
-    res.redirect('/me')
+    res.redirect('/users/me')
   }
   catch(error){
     next(error);
