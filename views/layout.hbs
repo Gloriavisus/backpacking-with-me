@@ -1,46 +1,45 @@
 <!doctype html>
 <html lang="en">
-​
+
 <head>
   <title>{{title}}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
-  <div class="home-page"> 
-        {{#if currentUser}}
-  <header>
-    <nav>
+  <div class="home-page">
+    {{#if currentUser}}
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/countries">Home</a></li>
+          <li><a href="/users/me">Me</a></li>
+          <li>
+            <form action="/auth/logout" method="POST">
+              <button type="submit">Log out</button></form>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    {{/if}}
+    {{#unless currentUser}}
+    <div class='index'>
+      <h1>Backpacking with me!</h1>
       <ul>
-        <li><a href="/countries">Home</a></li>
-        <li><a href="/users/me">Me</a></li>
-        <li>
-          <form action="/auth/logout" method="POST">
-          <button type="submit">Log out</button></form>
-        </li>
-      </ul>
-    </nav>
-  </header>
-        {{/if}}
-          {{#unless currentUser}}
-          <div class='index'>
-            
-          <h1>Backpacking with me!</h1>
         <li>
           <a href="/auth/signup">Sign up</a>
-          </li>
+        </li>
         <li>
           <a href="/auth/login">Log in</a>
-          </li>
-          </div>
-        {{/unless}}
-   
-  {{{body}}}
+        </li>
+      </ul>
+    </div>
+    {{/unless}}
+
+    {{{body}}}
   </div>
 </body>
+
 </html>
-
-
-
-
