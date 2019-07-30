@@ -1,0 +1,16 @@
+<h1>triiiiiip!</h1>
+{{#each tripUsers}}
+  {{username}}
+{{/each}}
+
+<form action="/trip/info" method="GET">
+<label for="countryFrom">From</label>
+<input type="text" name="From" id="countryFrom">
+<label for="countryTo">To</label>
+<input type="text" name="To" id="countryTo">
+<label for="dateFrom">Departure</label>
+<input type="text" name="Departure" id="dateFrom">
+<label for="dateTo">Arrives</label>
+<input type="text" name="Arrives" id="dateTo">
+<button type="submit">Send</button>
+</form>

@@ -13,6 +13,7 @@ router.get('/signup', isLoggedIn, (req, res, next) => {
 });
 
 router.post('/signup', isLoggedIn, isFormFilled, async (req, res, next) => {
+  console.log('sign up here');
   try {
     const { username, password } = req.body;
     const salt = bcrypt.genSaltSync(saltRounds);

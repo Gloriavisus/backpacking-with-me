@@ -1,14 +1,17 @@
- 
-<form class="login-form" action="/auth/signup" method="POST">
-<label for="username">Username</label>
+<div class="home-page">
+  <form class="login-form log-in-flex" action="/auth/signup" method="POST">
+  <h2>Sign Up</h2>
+  <label for="username">Username</label>
 
-<input type="text" name="username" id="username" required placeholder="Username">
-<label for="password">Password</label>
-<input type="text" name="password" id="password" required placeholder="Password">
-<button type="submit">Sign up</button>
-</form>
-{{#if messages.length}}
-<ul class="validation">
-  {{#each messages}}<li>{{this}}</li>{{/each}}
-</ul>
-{{/if}}
+  <input type="text" name="username" id="username" required placeholder="Username">
+  <label for="password">Password</label>
+  <input type="text" name="password" id="password" required placeholder="Password">
+  <button type="submit">Sign up</button>
+    <a href="/auth/login">I Have An Account :)</a>
+  </form>
+  {{#if messages.length}}
+  <ul class="validation">
+    {{#each messages}}<li>{{this}}</li>{{/each}}
+  </ul>
+  {{/if}}
+</div>

@@ -15,6 +15,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const countriesRouter = require('./routes/countries');
+const tripRouter = require('./routes/trip');
 
 const app = express();
 
@@ -58,6 +59,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/countries', countriesRouter);
+app.use('/trip', tripRouter);
 
 // -- 404 and error handler
 

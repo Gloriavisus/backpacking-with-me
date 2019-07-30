@@ -11,3 +11,17 @@
 <button type="submit">Favorite</button>
 </form>
 
+
+<h3>People</h3>
+{{#if countryDetail.preferences}}
+{{#each countryDetail.preferences}}
+<form action="/trip/{{_id}}/barcelona" method="POST">
+<button type="submit">Match</button>
+</form>
+  <h2>{{username}}</h2>
+  {{#each hobbies}}
+    {{this}}
+  {{/each}}
+{{/each}}
+{{/if}}
+
