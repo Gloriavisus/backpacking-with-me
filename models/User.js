@@ -1,6 +1,7 @@
 'user strict';
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
 const userSchema = new Schema({
   username: {
@@ -14,12 +15,16 @@ const userSchema = new Schema({
   },
   hobbies: {
     type: Array,
-    default: [],
+    default: []
   },
   description: {
     type: String,
-    default: "",
-  }
+    default: ''
+  },
+  trips: [{
+    type: ObjectId,
+    ref: 'Trip'
+  }]
 }, {
   timestamps: true
 });

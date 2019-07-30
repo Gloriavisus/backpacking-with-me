@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start-dev": "nodemon -e  json, js, hbs ./bin/www",
+    "start-dev": "nodemon -e json,js,hbs ./bin/www",
     "country-seed": "node ./bin/countries-seed"
   },
   "engines": {

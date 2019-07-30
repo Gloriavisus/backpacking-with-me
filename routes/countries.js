@@ -23,8 +23,7 @@ router.get('/:id', async (req, res, next) => {
     countryDetail.preferences.forEach(person => {
       idArray.push(person._id.toString());
     });
-    console.log(userId, idArray);
-    console.log(idArray, idArray.includes(userId));
+
     if (!idArray.includes(userId)) {
       countryDetail.preferences = [];
     };
