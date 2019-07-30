@@ -32,11 +32,14 @@ a {
   justify-content: center;
   align-items: center;
   filter: grayscale(46%);
+  flex-direction: column;
+  
 }
 
 .index{
   position: relative;
   z-index: 99;
+  
 }
 .index ul{
   display: flex;
