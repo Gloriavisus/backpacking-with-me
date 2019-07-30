@@ -10,4 +10,13 @@
 <form action="/countries/{{countryDetail._id}}/favorite" method="POST">
 <button type="submit">Favorite</button>
 </form>
+<h3>People</h3>
+{{#if countryDetail.preferences}}
+{{#each countryDetail.preferences}}
+  <h2>{{username}}</h2>
+  {{#each hobbies}}
+    {{this}}
+  {{/each}}
+{{/each}}
+{{/if}}
 

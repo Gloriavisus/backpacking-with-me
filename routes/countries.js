@@ -16,9 +16,18 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
-    const countryDetail = await Country.findById(id);
-    console.log(countryDetail);
+    const userId = req.session.currentUser._id;
+
+    const countryDetail = await Country.findById(id).populate('preferences');
+    const idArray = [];
+    countryDetail.preferences.forEach(person => {
+      idArray.push(person._id.toString());
+    });
+    console.log(userId, idArray);
+    console.log(idArray, idArray.includes(userId));
+    if (!idArray.includes(userId)) {
+      countryDetail.preferences = [];
+    };
     res.render('countryView/countryDetail', { countryDetail });
   } catch (error) {
     next(error);
@@ -30,7 +39,7 @@ router.post('/:id/favorite', async (req, res, next) => {
   const { id } = req.params;
   try {
     await Country.findByIdAndUpdate(id, { $push: { preferences: userId } });
-    res.redirect('/countries');
+    res.redirect(`/countries/${id}`);
   } catch (error) {
     next(error);
   }
