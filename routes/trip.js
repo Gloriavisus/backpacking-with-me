@@ -5,6 +5,22 @@ const Trip = require('../models/Trip.js');
 const User = require('../models/User.js');
 const axios = require('axios');
 
+router.get('/', async (req, res, next) => {
+  const { countryFrom, countryTo, dateFrom, dateTo, price, fly_duration } = req.query;
+  // req.query
+
+  try {
+    // console.log('getting ingo', dateFrom, dateTo);
+    const getFlightInfo = await axios.get(`https://api.skypicker.com/flights?flyFrom=${countryFrom}&to=${countryTo}&dateFrom=${dateFrom}&dateTo=${dateTo}&partner=picky&flightDuration=3h`);
+    // console.log(getFlightInfo.data.data);
+    // return flight information from search
+
+    return res.render('trip');
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get('trip/:id', async (req, res, next) => {
   const { id } = req.params;
   User.find({}).populate('trips')
@@ -16,29 +32,14 @@ router.get('trip/:id', async (req, res, next) => {
         });
       });
       console.log(tripUsers);
+      // render trip landing page
       res.render('trip', { tripUsers });
     });
 });
 
-router.get('/info', async (req, res, next) => {
-  let { countryFrom, countryTo, dateFrom, dateTo, price, fly_duration } = req.body;
-  countryFrom = 'PRG';
-  countryTo = 'LGW';
-  dateFrom = '18/11/2019';
-  dateTo = '21/12/2019';
-  price = 1100;
-  fly_duration = '3h';
-  try {
-    console.log('getting ingo', dateFrom, dateTo);
-    const getFlightInfo = await axios.get(`https://api.skypicker.com/flights?flyFrom=${countryFrom}&to=${countryTo}&dateFrom=${dateFrom}&dateTo=${dateTo}&partner=picky&flightDuration=3h`);
-    console.log(getFlightInfo.data.data);
+// a post to update the trip with the information from the api get above
 
-    res.render('/trip');
-  } catch (error) {
-    next(error);
-  }
-});
-
+// a post to create a trip from city
 router.post('/:id/:country', async (req, res, next) => {
   const { id, country } = req.params;
   const myUserId = req.session.currentUser._id;
