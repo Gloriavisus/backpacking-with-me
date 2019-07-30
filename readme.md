@@ -85,7 +85,6 @@ POST / user
 POST / user / :id / delete
 POST / user / edit
 
-
 # Models
 
 User Model:
