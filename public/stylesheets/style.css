@@ -5,7 +5,7 @@
 
 
 h1{
-  margin-top: 150px;
+  margin-top: 50px;
   font-size: 60px;
 }
 body {
@@ -18,6 +18,7 @@ a {
   text-align: center;
   display: flex;
   margin-top: 100px;
+  margin-right: 30px;
   border:2px solid;
   text-decoration: none;
   border-radius: 20px;
@@ -25,12 +26,14 @@ a {
 }
 
 .home-page{
-  background-image: url('../image/sky22.jpg');
+  background-image: url('../image/arm22.jpeg');
+  background-position: center;
+  background-size: cover;
   height: 100vh;
   text-align: center;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   filter: grayscale(46%);
 }
 
