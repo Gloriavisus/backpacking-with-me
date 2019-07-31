@@ -6,22 +6,32 @@ const User = require('../models/User.js');
 const axios = require('axios');
 
 router.get('/', async (req, res, next) => {
-  const { countryFrom, countryTo, dateFrom, dateTo, price, fly_duration } = req.query;
-  // req.query
+
+});
+
+router.post('/', async (req, res, next) => {
+  const { countryFrom, countryTo, dateFrom, dateTo, price, fly_duration } = req.body;
 
   try {
     // console.log('getting ingo', dateFrom, dateTo);
-    const getFlightInfo = await axios.get(`https://api.skypicker.com/flights?flyFrom=${countryFrom}&to=${countryTo}&dateFrom=${dateFrom}&dateTo=${dateTo}&partner=picky&flightDuration=3h`);
-    // console.log(getFlightInfo.data.data);
+    const getFlightInfo = await axios.get(`https://api.skypicker.com/flights?flyFrom=${countryFrom}&to=${countryTo}&dateFrom=${dateFrom}&dateTo=${dateTo}&partner=picky&one_for_city=1`);
+    console.log(getFlightInfo.data.data);
     // return flight information from search
 
-    return res.render('trip');
+    // 1) console log what get getFlightInfo.data.data[0];
+    // 2) choose the fields you want from this and put them inside the const {cityFrom}
+
+    const { cityFrom } = getFlightInfo.data.data[0];
+    // 3) put these fields inside the render method below cityFrom
+    return res.render('trip', {
+      cityFrom
+    });
   } catch (error) {
     next(error);
   }
 });
 
-router.get('trip/:id', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   const { id } = req.params;
   User.find({}).populate('trips')
     .then(users => {
@@ -51,7 +61,7 @@ router.post('/:id/:country', async (req, res, next) => {
   const updateOtherUser = User.findByIdAndUpdate(id, { $push: { trips: newTrip._id } });
   const updateMyUser = User.findByIdAndUpdate(myUserId, { $push: { trips: newTrip._id } });
   Promise.all([updateMyUser, updateOtherUser, saveTrip])
-    .then((data) => console.log(data))
+    .then((data) => res.redirect(`/trip/${id}`))
     .catch((error) => { next(error); });
 });
 module.exports = router;
