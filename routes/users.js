@@ -6,7 +6,8 @@ const User = require('../models/User.js');
 /* GET users listing. */
 router.get('/me', async (req, res, next) => {
   const userId = req.session.currentUser._id;
-  const user = await User.findById(userId);
+  const user = await User.findById(userId).populate('trips');
+  console.log(user);
 
   res.render('me', user);
 });

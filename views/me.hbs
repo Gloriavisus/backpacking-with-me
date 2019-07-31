@@ -2,5 +2,12 @@
   <p>{{username}}</p>
   <p>{{hobbies}}</p>
   <p>{{description}}</p>
+  <h2>My Trips</h2>
+
+  {{#each trips}}
+    <a href="/trip/{{_id}}"><div>
+      {{countryTo}}
+    </div></a>
+  {{/each}}
   <a href="/users/me/edit">Edit</a>
 </div>

@@ -1,6 +1,6 @@
 'user strict';
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema; 
+const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 const countrySchema = new Schema({
   name: {
@@ -17,6 +17,9 @@ const countrySchema = new Schema({
     ref: 'User'
   }],
   image: {
+    type: String
+  },
+  code: {
     type: String
   }
 }, {

@@ -2,15 +2,32 @@
 {{#each tripUsers}}
   {{username}}
 {{/each}}
+<h2>This current Trip Info</h2>
+<p>To: {{trip.countryTo}}</p>
+<p>From: {{trip.countryFrom}}</p>
+<p>Price: {{trip.price}}</p>
 
-<form action="/trip/info" method="GET">
-<label for="countryFrom">From</label>
-<input type="text" name="From" id="countryFrom">
-<label for="countryTo">To</label>
-<input type="text" name="To" id="countryTo">
-<label for="dateFrom">Departure</label>
-<input type="text" name="Departure" id="dateFrom">
-<label for="dateTo">Arrives</label>
-<input type="text" name="Arrives" id="dateTo">
-<button type="submit">Send</button>
+<form action="/trip/{{id}}/getFlights" method="POST">
+  <label for="countryFrom">From</label>
+  <input type="text" name="countryFrom" id="countryFrom" value="{{countryTo}}">
+  <label for="countryTo">To</label>
+  <input type="text" name="countryTo" id="countryTo">
+  <label for="dateFrom">Departure</label>
+  <input type="text" name="dateFrom" id="dateFrom">
+  <label for="dateTo">Arrives</label>
+  <input type="text" name="dateTo" id="dateTo">
+  <button type="submit">Send</button>
 </form>
+
+{{#if cityFrom}}
+<form action="/trip/{{id}}/save" method="POST">
+
+  <h1>The trip of your dreams!</h1>
+  <input name="cityFrom" type="text" value={{cityFrom}}>
+  <input name="cityTo" type="text" value={{cityTo}}>
+  <input name="price" type="text" value={{price}}>
+  <input name="flyDuration" type="text" value={{fly_duration}}>
+  <button type="submit">Save</button>
+</form>
+{{/if}}
+

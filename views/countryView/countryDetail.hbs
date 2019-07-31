@@ -1,21 +1,19 @@
 
-{{#each countryDetail}}
-  <h2>{{name}}</h2>
-  <p>{{city}}</p>
-  <img src={{image}}>
-  <p>{{description}}</p>
-{{/each}}
+<h2>{{name}}</h2>
+<p>{{city}}</p>
+<img src={{image}}>
+<p>{{description}}</p>
 
 <h3>Favorite</h3>
-<form action="/countries/{{countryDetail._id}}/favorite" method="POST">
+<form action="/countries/{{_id}}/favorite" method="POST">
 <button type="submit">Favorite</button>
 </form>
 
 
 <h3>People</h3>
-{{#if countryDetail.preferences}}
-{{#each countryDetail.preferences}}
-<form action="/trip/{{_id}}/barcelona" method="POST">
+{{#if preferences}}
+{{#each preferences}}
+<form action="/trip/{{_id}}/{{../code}}" method="POST">
 <button type="submit">Match</button>
 </form>
   <h2>{{username}}</h2>
