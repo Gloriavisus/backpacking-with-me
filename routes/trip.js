@@ -12,13 +12,13 @@ router.get('/', async (req, res, next) => {
 router.post('/:id/getFlights', async (req, res, next) => {
   const { countryFrom, countryTo, dateFrom, dateTo } = req.body;
   const { id } = req.params;
-
+  console.log('arrive')
   try {
     // console.log('getting ingo', dateFrom, dateTo);
     const getFlightInfo = await axios.get(`https://api.skypicker.com/flights?flyFrom=${countryFrom}&to=${countryTo}&dateFrom=${dateFrom}&dateTo=${dateTo}&partner=picky&one_for_city=1`);
 
     // return flight information from search
-
+    console.log(getFlightInfo)
     // 1) console log what get getFlightInfo.data.data[0];
     // 2) choose the fields you want from this and put them inside the const {cityFrom}
 
