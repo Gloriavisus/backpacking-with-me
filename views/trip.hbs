@@ -3,7 +3,7 @@
   {{username}}
 {{/each}}
 
-<form action="/trip" method="POST">
+<form action="/trip/{{id}}/getFlights" method="POST">
   <label for="countryFrom">From</label>
   <input type="text" name="countryFrom" id="countryFrom" value="{{countryFrom}}">
   <label for="countryTo">To</label>
@@ -14,7 +14,16 @@
   <input type="text" name="dateTo" id="dateTo">
   <button type="submit">Send</button>
 </form>
-{{#if cityName}}
-<h2>{{cityName}}</h2>
-<h1>hello</h1>
-{{/if}}
+
+
+<form action="/trip/{{id}}/save" method="POST">
+
+  <h1>The trip of your dreams!</h1>
+  <input name="cityFrom" type="text" value={{cityFrom}}>
+  <input name="cityTo" type="text" value={{cityTo}}>
+  <input name="price" type="text" value={{price}}>
+  <input name="flyDuration" type="text" value={{fly_duration}}>
+  <button type="submit">Save</button>
+</form>
+
+
