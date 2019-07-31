@@ -69,7 +69,7 @@ body {
 }
 .navigator{
   width: 100vw;
-  background: blanchedalmond;
+  background: #9ee2ea;
 }
 
 .navigator a{
@@ -78,11 +78,14 @@ body {
   border: 0px solid;
   text-align: center;
   width: 100%;
+  text-decoration-line: none;
+  color: black;
 }
 
 
 .navigator li{
   text-align: center;
+  list-style: none;
 }
 
 .navigator ul{
@@ -91,6 +94,7 @@ body {
   padding: 0;
   list-style-type: none;
   align-items: center;
+  list-style: none;
 }
 
 .navigator form button{
@@ -100,7 +104,7 @@ body {
   border: 0px solid;
   padding: 25px;
   font-size: 20px;
-  background: blanchedalmond;
+  background-color: #9ee2ea;
 }
 .yourname{
   display: flex;
@@ -143,4 +147,83 @@ body {
   list-style-type: none;
   border: none;
   background: none;
+}
+.country{
+  text-align: center;
+
+}
+.cards{
+  border: 3px solid black;
+  background-color: #89f1103d;
+  margin: 58px;
+  text-align: center;
+  padding: 20px;
+}
+.cards a{
+  color: #58a6af;
+  text-decoration-line: none;
+}
+.cardview{
+
+}
+.cardview img{
+  height: 218px;
+  width: 415px;
+}
+.cardview h2{
+  text-align: center;
+}
+.cardview h3{
+  text-align: center;
+}
+.cardview p{
+  text-align: center;
+    padding: 11px;
+}
+.heart {
+    float: right;
+}
+.heart img{
+  height: 35px;
+}
+.buttonmatch{
+  padding: 4px;
+  border: 2px solid black;
+  font-size: 16px;
+  margin: 7px;
+  background-color: #9ee2ea;
+}
+.matchname{
+  margin: 11px;
+  padding: 5px;
+  font-size: 23px;
+}
+.people{
+  margin: 11px;
+  padding: 5px;
+}
+.search{
+  display: flex;
+  flex-direction: column;
+}
+.search input{
+  border: 1px solid black;
+  margin: 9px;
+  padding: 6px;
+}
+.search button{
+  font-size: 20px;
+}
+.search label{
+  text-align:center;
+}
+.save input{
+  border: 1px solid black;
+  text-align: center;
+  font-size: 15px;
+   margin: 5px;
+
+}
+.save button{
+  font-size: 15px;
 }
