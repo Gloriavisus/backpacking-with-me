@@ -27,7 +27,7 @@ router.get('/:id', async (req, res, next) => {
     if (!idArray.includes(userId)) {
       countryDetail.preferences = [];
     };
-    res.render('countryView/countryDetail', { countryDetail });
+    res.render('countryView/countryDetail', countryDetail);
   } catch (error) {
     next(error);
   }
