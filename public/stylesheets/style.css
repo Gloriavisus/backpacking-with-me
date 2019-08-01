@@ -156,20 +156,25 @@ body {
 .cards{
   border: 3px solid black;
   background-color: #89f1103d;
-  margin: 58px;
+  margin: 17px;
   text-align: center;
   padding: 20px;
+  background-position: center;
+  filter: grayscale(33%);
 }
 .cards a{
-  color: #58a6af;
+  color: transparent;
   text-decoration-line: none;
+  text-shadow: 2px 3px white;
 }
 .cardview{
   overflow: hidden;
+  
 }
 .cardview img{
-  height: 218px;
+ 
   width: 415px;
+  height: 298px;
 }
 .cardview h2{
   text-align: center;
@@ -255,6 +260,7 @@ body {
     margin: 4px;
     padding: 12px;
     text-decoration-line: none;
+    
 }
 .edit h2{
   padding: 22px;
