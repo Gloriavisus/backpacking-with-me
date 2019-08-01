@@ -1,4 +1,5 @@
-<h1>TRIP</h1>
+<section class="tripcolor">
+  <h1>TRIP</h1>
 {{#each tripUsers}}
   {{username}}
 {{/each}}
@@ -29,8 +30,10 @@
   </div>
 </form>
 {{/if}}
-
+<div class="info">
 <h3>This current Trip Info</h3>
 <p>To: {{trip.countryTo}}</p>
 <p>From: {{trip.countryFrom}}</p>
 <p>Price: {{trip.price}}</p>
+</div>
+</section>
