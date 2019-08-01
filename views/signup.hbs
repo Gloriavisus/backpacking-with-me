@@ -1,13 +1,15 @@
 <div class="home-page">
   <form class="login-form" action="/auth/signup" method="POST">
   <h2>Sign Up</h2>
+  <div class="yourname">
   <label for="username">Username</label>
 
   <input type="text" name="username" id="username" required placeholder="Username">
   <label for="password">Password</label>
-  <input type="text" name="password" id="password" required placeholder="Password">
-  <button type="submit">Sign up</button>
-    <a href="/auth/login">I Have An Account :)</a>
+  <input type="password" name="password" id="password" required placeholder="Password">
+  <button class="login"type="submit">Sign up</button>
+  </div>
+    <a class="login-signup-bar" href="/auth/login">I Have An Account :)</a>
   </form>
   {{#if messages.length}}
   <ul class="validation">

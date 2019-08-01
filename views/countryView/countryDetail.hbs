@@ -1,22 +1,23 @@
-
+<div class="cardview">
 <h2>{{name}}</h2>
-<p>{{city}}</p>
+<h3>{{city}}</h3>
 <img src={{image}}>
 <p>{{description}}</p>
+</div>
 
-<h3>Favorite</h3>
 <form action="/countries/{{_id}}/favorite" method="POST">
-<button type="submit">Favorite</button>
+<button class="heart" type="submit"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Love_Heart_SVG.svg/645px-Love_Heart_SVG.svg.png" alt="heart"></button>
 </form>
 
-
-<h3>People</h3>
+<h3 class="people">People</h3>
 {{#if preferences}}
 {{#each preferences}}
+<div class="matchname">
+<p>{{username}}</p>
 <form action="/trip/{{_id}}/{{../code}}" method="POST">
-<button type="submit">Match</button>
+<button class="buttonmatch" type="submit">Match</button>
 </form>
-  <h2>{{username}}</h2>
+</div>
   {{#each hobbies}}
     {{this}}
   {{/each}}
