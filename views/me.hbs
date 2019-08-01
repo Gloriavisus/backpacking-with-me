@@ -2,6 +2,11 @@
    <a class="edit" href="/users/me/edit">Edit</a>
    <div class="myinformation">
     <h2>My information</h2>
+    {{#if image}}
+    <img src="{{image}}" alt="image">
+    {{else}}
+    <div class="default-img"><p>Update you Image</p></div>
+    {{/if}}
       <p>{{username}}</p>
       <p>{{hobbies}}</p>
        <p>{{description}}</p>

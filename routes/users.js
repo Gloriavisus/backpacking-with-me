@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User.js');
+const parser = require('../config/cloudinary');
 
 /* GET users listing. */
 router.get('/me', async (req, res, next) => {
@@ -17,15 +18,17 @@ router.get('/me/edit', async (req, res, next) => {
   res.render('editme', user);
 });
 
-router.post('/me/edit', async (req, res, next) => {
+router.post('/me/edit', parser.single('photo'), async (req, res, next) => {
   const { username, hobbies, description } = req.body;
   const id = req.session.currentUser._id;
+  const image = req.file.secure_url;
   try {
     console.log('here we are tias');
     await User.findByIdAndUpdate(id, {
       username,
       hobbies,
-      description
+      description,
+      image: image
     });
     res.redirect('/users/me');
   } catch (error) {
