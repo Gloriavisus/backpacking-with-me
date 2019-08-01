@@ -17,6 +17,7 @@ const userSchema = new Schema({
     type: Array,
     default: []
   },
+  image: String,
   description: {
     type: String,
     default: ''

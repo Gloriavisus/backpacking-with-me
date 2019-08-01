@@ -1,5 +1,7 @@
-<form action="/users/me/edit" method="POST">
+<form action="/users/me/edit" method="POST" enctype="multipart/form-data">
 <div class="editme">
+<input type="file" name="photo" />
+<button type="submit">Add Image</button>
 <label for="username">Username</label>
 <input type="text" name="username" value={{username}}>
 <label for="hobbies">Hobby</label>
