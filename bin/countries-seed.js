@@ -51,7 +51,7 @@ const countries = [
     name: 'Brazil',
     city: 'Rio de Janeiro',
     code: 'RIO',
-    image: '/image/rio de janeiro.jpg',
+    image: '/image/riodejaneiro.jpg',
     description: 'Rio de Janeiro or simply Rio, is anchor to the Rio de Janeiro metropolitan area and the second-most populous municipality in Brazil and the sixth-most populous in the Americas. Rio de Janeiro is the capital of the state of Rio de Janeiro, Brazil\'s third-most populous state. Part of the city has been designated as a World Heritage Site, named \"Rio de Janeiro: Carioca Landscapes between the Mountain and the Sea\", by UNESCO on 1 July 2012 as a Cultural Landscape.'
   },
   {
