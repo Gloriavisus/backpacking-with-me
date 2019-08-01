@@ -130,6 +130,7 @@ body {
     justify-content: center;
     position: fixed;
     left: 12.5%;
+    background-color: #ffffff47;
 }
 
 .login-signup-bar:hover{
@@ -164,7 +165,7 @@ body {
   text-decoration-line: none;
 }
 .cardview{
-
+  overflow: hidden;
 }
 .cardview img{
   height: 218px;
@@ -226,4 +227,46 @@ body {
 }
 .save button{
   font-size: 15px;
+}
+.editme{
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  margin: 14px;
+}
+.editme input{
+  border: 0.5px solid #0000003d;
+  margin: 10px;
+  padding: 9px;
+  font-size: 20px;
+}
+.editme button{
+  font-size: 20px;
+  margin: 20px;
+  border: 0.5px solid #0000003d;
+  margin-left: 121px;
+  margin-right: 121px;
+  border-radius: 19px;
+  background-color: #9ee2ea;
+}
+.edit{
+  color: #1433de;
+    float: right;
+    margin: 4px;
+    padding: 12px;
+    text-decoration-line: none;
+}
+.edit h2{
+  padding: 22px;
+}
+.myinformation{
+
+}
+.myinformation h2{
+  margin: 12px;
+  padding: 6px;
+}
+.myinformation p{
+  margin: 10px;
+  padding: 10px;
 }

@@ -1,7 +1,11 @@
 <div>
-  <p>{{username}}</p>
-  <p>{{hobbies}}</p>
-  <p>{{description}}</p>
+   <a class="edit" href="/users/me/edit">Edit</a>
+   <div class="myinformation">
+    <h2>My information</h2>
+      <p>{{username}}</p>
+      <p>{{hobbies}}</p>
+       <p>{{description}}</p>
+   </div>
   <h2>My Trips</h2>
 
   {{#each trips}}
@@ -9,5 +13,5 @@
       {{countryTo}}
     </div></a>
   {{/each}}
-  <a href="/users/me/edit">Edit</a>
+ 
 </div>
